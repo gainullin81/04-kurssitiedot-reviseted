@@ -1,27 +1,7 @@
-//2.4: course information step9
+//2.5: standalone module
 
-import { useState } from 'react'
-
-const Course = ({ course }) => {
-  const totalExercises = course.parts.reduce((total, part) => total + part.exercises, 0);
-
-  return (
-
-    <div>
-
-
-      <h2>{course.name}</h2>
-      <div>
-        {course.parts.map(part => (
-          <p key={part.id}>
-            {part.name} - {part.exercises} exercises
-          </p>
-        ))}
-      </div>
-      <p><strong>total of {totalExercises} exercises</strong></p>
-    </div>
-  );
-};
+import { useState } from 'react';
+import Course from './Course';
 
 const App = () => {
   const courses = [
@@ -71,7 +51,6 @@ const App = () => {
 
   return (
     <div>
-      <h1> Web development curriculum</h1>
       {courses.map(course => (
         <Course key={course.id} course={course} />
       ))}
